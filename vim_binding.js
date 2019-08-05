@@ -150,7 +150,8 @@ require([
   vim_binding.on_ready_callbacks.push(function(){
     var km = ns.keyboard_manager;
     // Indicate the key combination to run the commands
-    km.edit_shortcuts.add_shortcut('alt-;', 'jupyter-notebook:run-cell', true);
+    //km.edit_shortcuts.add_shortcut('alt-;', 'jupyter-notebook:run-cell', true);
+    km.edit_shortcuts.add_shortcut('alt-j', 'jupyter-notebook:run-cell', true);
     km.edit_shortcuts.events.trigger('rebuild.QuickHelp');
   });
 });
