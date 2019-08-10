@@ -63,7 +63,7 @@ define([
       modules[i].attach(params);
     }
     // Include required CSS
-    require_css('./vim_binding.css');
+    //require_css('./vim_binding.css');
     // Initialize
     var cm_config = Cell.options_default.cm_config;
     cm_config.keyMap = 'vim';
@@ -89,6 +89,12 @@ define([
       this.on_ready_callbacks[i](this);
     }
 	
+	// ------------------------------------------------------
+    var km = ns.keyboard_manager;
+    km.edit_shortcuts.add_shortcut('alt-j', 'jupyter-notebook:run-cell', true);
+    km.edit_shortcuts.events.trigger('rebuild.QuickHelp');
+	// ------------------------------------------------------
+
 	// comment/uncomment
     CodeMirror.Vim.defineAction("toggle_comment_a", function(cm) {
         cm.toggleComment();
@@ -96,6 +102,7 @@ define([
     CodeMirror.Vim.mapCommand("\\", "action", "toggle_comment_a", {});
 
 	 CodeMirror.Vim.map("jj", "<Esc>", "insert");
+	 CodeMirror.Vim.map("jk", "<Esc>", "insert");
 	  // Swap j/k and gj/gk (Note that <Plug> mappings)
 	  CodeMirror.Vim.map("j", "<Plug>(vim-binding-gj)", "normal");
 	  CodeMirror.Vim.map("k", "<Plug>(vim-binding-gk)", "normal");
@@ -139,22 +146,6 @@ CodeMirror.Vim.map("<C-h>", "h", "normal");
 CodeMirror.Vim.map("<C-l>", "l", "normal");
 //CodeMirror.Vim.map("<C-j>", "j", "normal");
 //CodeMirror.Vim.map("<C-k>", "k", "normal");
-
-
-// ----------------------------------------------------------
-require([
-  'nbextensions/vim_binding/vim_binding',
-  'base/js/namespace',
-], function(vim_binding, ns) {
-  // Add post callback
-  vim_binding.on_ready_callbacks.push(function(){
-    var km = ns.keyboard_manager;
-    // Indicate the key combination to run the commands
-    //km.edit_shortcuts.add_shortcut('alt-;', 'jupyter-notebook:run-cell', true);
-    km.edit_shortcuts.add_shortcut('alt-j', 'jupyter-notebook:run-cell', true);
-    km.edit_shortcuts.events.trigger('rebuild.QuickHelp');
-  });
-});
 
   exports.detach = function detach() {
     for(var i=0; i<modules.length; i++) {
