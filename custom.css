@@ -187,6 +187,15 @@ div.cell.selected:before, div.cell.selected.jupyter-soft-selected:before {
     background: rgba(0, 0, 0, .1) !important;
 }
 
+div.cell.jupyter-soft-selected {
+    border-left-color: #1c2020;
+    border-left-width: 1px;
+    padding-left: 5px;
+    border-right-color: #1c2020;
+    border-right-width: 1px;
+    background: #1b1f36;
+}
+
 div.cell {padding-left: 2px !important;}
 
 div.text_cell_render, div.output_html {color: #b7b7b7;}
@@ -497,7 +506,7 @@ input[type="checkbox"] {
 .MathJax_Display,
 .MathJax nobr>span.math>span {
     border: 0 !important;
-    font-size: 110% !important;
+    font-size: 120% !important;
     text-align: center !important;
     margin: 0em !important;
 	color: #ccc;
@@ -545,9 +554,11 @@ input[type="checkbox"] {
     background: #000;
 }
 .CodeMirror-gutter {padding-left: 5px;}
-.cm-s-default div.CodeMirror-selected, .cm-s-ipython div.CodeMirror-selected {background: rgba(122, 163, 204, 0.2) !important;}
-.CodeMirror-cursor { border-left: 3px solid #bb1010 !important; }
-.cm-fat-cursor .CodeMirror-cursor {width: auto;border: 0 !important; background: #bb1010;}
+.cm-s-default div.CodeMirror-selected, .cm-s-ipython div.CodeMirror-selected {
+    background: rgba(150, 10, 10, 0.6) !important;
+}
+.CodeMirror-cursor { border-left: 3px solid #f00 !important; }
+.cm-fat-cursor .CodeMirror-cursor {width: auto;border: 0 !important; background: #ff0000c0;}
 .cm-fat-cursor div.CodeMirror-cursors {z-index: 1;}
 .cm-animate-fat-cursor {
   width: auto;
@@ -558,8 +569,9 @@ input[type="checkbox"] {
   background-color: #bb1010;
 }
 .cm-s-ipython .CodeMirror-matchingbracket { 
-	text-decoration: underline; 
-	color: #30b030 !important; background-color: #603030 !important;
+/*    text-decoration-line: underline; text-decoration-style: solid; */
+	color: #d6d31b !important; 
+    background-color: #4154a0 !important;
 }
 
 span.ansiblack  {color: #323537;}
