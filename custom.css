@@ -1,6 +1,6 @@
 /* Uncomment to use a custom font */
 div#notebook, div.CodeMirror, div.output_area pre, div.output_wrapper, div.prompt {
-   font-family: 'hasklig semibold', 'Meslo LG S', monospace !important;
+   font-family:  'hasklig semibold', 'Pragmata Pro Mono', 'Meslo LG S', monospace !important;
    font-size: 12px;
    line-height: 110%;
   -webkit-font-smoothing: antialiased !important;
@@ -67,11 +67,12 @@ del { color: #860514; font-style: italic; }
     background-color: #000 !important; 
 }
 div#notebook {
-	background-color: #000; 
-	border-top: none;
+  background-color: #000; 
+  border-top: none;
     padding-top: 5px;
-	
+  
 }
+div.prompt {min-width: 10ex;}
 div#header-container { display: none;  }
 div#maintoolbar { display: none !important; }
 body > #header #header-container {display: none;}
@@ -83,14 +84,14 @@ div.output.output_scroll {box-shadow: none;}
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	    -webkit-border-radius: 5px;
-	    border-radius: 5px;
-	    background: #880000;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      background: #880000;
         display: none;
 
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-	background: #484848;
+  background: #484848;
 }
 
 .container {
@@ -99,7 +100,7 @@ div.output.output_scroll {box-shadow: none;}
 body.nbextensions_configurator_page {
     color: #308030;
 }
-	
+  
 #site {
     background: #050505;
 }
@@ -118,23 +119,30 @@ body > #header .header-bar {
 /* GLOBALS */
 body {background-color: #000;}
 a {
-	/*color: #87a6fc;*/
-	color: #509050;
-	text-decoration: none !important;
+  /*color: #87a6fc;*/
+  color: #509050;
+  text-decoration: none !important;
 }
 
 a:hover, a:focus {
-	/*color: #1372c8;*/
-	color: #5f5;
-	text-shadow: -1px 1px 8px #555, 1px -1px 8px #555; 
+  /*color: #1372c8;*/
+  color: #5f5;
+  text-shadow: -1px 1px 8px #555, 1px -1px 8px #555; 
 }
 
 /* INTRO PAGE */
 .toolbar_info, .list_container {color: #c3c3c3;}
 
 /* NOTEBOOK */
-div.input_prompt {color: #567ff6;}
-div.output_prompt {color: #50a050;}
+div.input_prompt {
+    color: #567ff6;
+    font-family: 'Pragmata Pro Mono', monospace !important;
+    font-size: 11px;}
+div.output_prompt {
+    color: #50a050;
+    font-family: 'Pragmata Pro Mono', monospace !important;
+    font-size: 11px;
+}
 
 div.input_area {
   border-radius: 0px;
@@ -165,26 +173,24 @@ div.output_html { font-family: sans-serif; }
 table.dataframe tr {border: 1px #a7a7a7;}
 
 div.cell.selected {
-	border-radius: 0px; 
-	border-left-width: 3px !important; 
-	border-top-width: 0px !important; 
-	border-bottom-width: 0px !important; 
-	border-color: #3991b7 !important;
-	padding-left: 0px !important;
+  border-radius: 0px; 
+  border-left-width: 5px !important; 
+  border-top-width: 0px !important; 
+  border-bottom-width: 0px !important; 
+  border-color: #3991ff !important;
+  padding-left: 0px !important;
     padding-bottom:  6px !important;
     padding-top: 6px !important;
-	/*background: linear-gradient(to right, #1aa1ce -10px, #6476c6 6px, transparent 6px, rgba(0, 0, 0, 0) 100%);*/
 }
 
 .edit_mode div.cell.selected {
-    border-left-width: 4px;
+    border-left-width: 5px;
     padding-left: 0px;
     border-color: #ca2e14 !important;
-    /*background: linear-gradient(to right, #ca2e14cf -10px, #ca2e14cf 6px, transparent 6px, transparent 100%);*/
 }
 
 div.cell.selected:before, div.cell.selected.jupyter-soft-selected:before {
-    background: rgba(0, 0, 0, .1) !important;
+    background: rgba(0, 0, 0, 0.1) !important;
 }
 
 div.cell.jupyter-soft-selected {
@@ -196,55 +202,57 @@ div.cell.jupyter-soft-selected {
     background: #1b1f36;
 }
 
-div.cell {padding-left: 2px !important;}
+div.cell {padding-left: 4px !important;}
 
 div.text_cell_render, div.output_html {color: #b7b7b7;}
 div.output_stderr {background-color: #101010;}
 div.output_stderr pre {
-	color: #808010; 
-	font-size: 12px;
+  color: #808010; 
+  font-size: 12px;
 }
-	
+  
 .btn-group > .btn,.form-control,div#header, div.navbar-collapse, div#notebook-container,
 div#notebook,div#complete > select,div#notification_notebook,div#notification_kernel,li > .dropdown-menu,
 .dropdown-menu > li > a,.dropdown-menu > li > a:focus {
-	color: #ddd;
-	border-color: #303030;
-	background-color: #000; /* Main bg color is here */
+  color: #ddd;
+  border-color: #303030;
+  background-color: #000; /* Main bg color is here */
     font-size: 10px;
 }
-
+div#notebook-container {
+    padding: 1px;
+}
 .dropdown-menu > li > a:hover {
-	background-color: #a00000;
-	color: #fff;
+  background-color: #a00000;
+  color: #fff;
     font-size: 10px;
 }
 
 .dropdown,.dropdown.open,.dropdown-menu {
-	color: silver;
-	background-color: #050505;
+  color: silver;
+  background-color: #050505;
 }
-	
+  
 .dropdown-menu .divider {
     height: 1px;
     margin: 8px 0;
     overflow: hidden;
     background-color: #2e2e2e;
 }
-	
+  
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > li > a:hover {
-	color: #fff !important;
+  color: #fff !important;
     background-color: #a00000;
 }
 
 .navbar-default {
     background-color: #30308000;
-	border-color: #333 !important;
+  border-color: #333 !important;
 }
 
 .navbar-default .navbar-nav > li > a {
-	color: #ddd !important;  /* Menu text color */
+  color: #ddd !important;  /* Menu text color */
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
     color: #fff !important;
@@ -259,15 +267,15 @@ span.p {color:#9b703f !important;}
 .highlight { background: #292b2f !important; }
 
 .rendered_html pre, .rendered_html code {
-	background-color: #2e2e2e !important;
-	color: #60a060 !important;
+  background-color: #101010 !important;
+  color: #60a060 !important;
 }
-	
+  
 .rendered_html * + ol {
     margin-top: 0em;
     margin-bottom: 1em;
 }
-	
+  
 .rendered_html * + ul {
     margin-top: 0em;
     margin-bottom: 1em;
@@ -275,43 +283,43 @@ span.p {color:#9b703f !important;}
 
 /* Scratchpad style */
 #nbextension-scratchpad .cell-wrapper {
-	height: 100%;
-	overflow: auto;
-	background-color: #101010;
+  height: 100%;
+  overflow: auto;
+  background-color: #101010;
 }
 
 #nbextension-scratchpad {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	width: 50%;
-	background-color: #400000;
-	border-left: 1px solid #107010 !important;
-	border-right: 1px solid #107010 !important;
-	border-top:  1px solid #107010 !important;
-	border-bottom:  1px solid #107010 !important;
-	z-index: 9000;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: #400000;
+  border-left: 1px solid #107010 !important;
+  border-right: 1px solid #107010 !important;
+  border-top:  1px solid #107010 !important;
+  border-bottom:  1px solid #107010 !important;
+  z-index: 9000;
 }
 
 div#pager {
-	background-color: #505050 !important;
+  background-color: #505050 !important;
 }
 
 div#pager pre {
-	line-height: 1.21429em;
-	color: #8dc5e9;
-	background-color: #181818;
-	padding: 0.4em;
+  line-height: 1.21429em;
+  color: #8dc5e9;
+  background-color: #181818;
+  padding: 0.4em;
 }
 
 /* ------------------------------- Tree navigator -------------------------- */
 .list_header {
-	font-weight: bold;
-	background-color: #000;
+  font-weight: bold;
+  background-color: #000;
 }
 
 .list_container {
-	margin-top: 4px;
+  margin-top: 4px;
     margin-bottom: 20px;
     border: 1px solid #353535;
 }
@@ -325,22 +333,22 @@ div#pager pre {
 }
 
 .dynamic-instructions {
-	display: inline-block;
-	padding-top: 4px;
-	color: #6e6e84;
+  display: inline-block;
+  padding-top: 4px;
+  color: #6e6e84;
 }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-	color: #fff;
-	background-color: #570712;
-	border: 1px solid #9C1430;
-	border-bottom-color: #480101;
-	cursor: default;
-	outline: none;
+  color: #fff;
+  background-color: #570712;
+  border: 1px solid #9C1430;
+  border-bottom-color: #480101;
+  cursor: default;
+  outline: none;
 }
 
 .nav-tabs > li > a:hover {
-	border-color: #350808 #350808 #350808;
+  border-color: #350808 #350808 #350808;
 
 }
 .nav > li > a:hover, .nav > li > a:focus {text-decoration: none; background-color: #800; color: #fff;}
@@ -348,45 +356,45 @@ div#pager pre {
 .nav-tabs { border-bottom: 1px solid #202020; background: #050505 }
 
 .btn-default {
-	color: #CCC3C3;
-	background-color: #333;
-	border-color: #303030;
+  color: #CCC3C3;
+  background-color: #333;
+  border-color: #303030;
 }
 .btn-default:hover {
-	color: #BFB7B7;
-	background-color: #900000;
-	border-color: #200000;
+  color: #BFB7B7;
+  background-color: #900000;
+  border-color: #200000;
 }
-	
-	
+  
+  
 table.dataframe, .dataframe td, .dataframe tr { 
-	border: 1px solid #003000; border-collapse: collapse; color: #308030 !important;
+  border: 1px solid #003000; border-collapse: collapse; color: #308030 !important;
 }
-	
+  
 .rendered_html tbody tr:nth-child(2n+1) {background: #102010;}
-	
+  
 .dataframe th { 
-	border: 1px solid #003000; border-collapse: collapse; background-color: #001800 !important; color: #709070 !important;
+  border: 1px solid #003000; border-collapse: collapse; background-color: #001800 !important; color: #709070 !important;
 }
-	
+  
 #texteditor-backdrop {
     background-color: #102030;
 }
 
 #texteditor-backdrop #texteditor-container .CodeMirror-gutter, #texteditor-backdrop #texteditor-container .CodeMirror-gutters {
     background-color: #201c1c;
-}	
+} 
 
 .timing_area {
     padding: 0 5px;
     border: none;
     border-top: 1px solid #202020;
     font-size: 90%;
-	text-align: right !important;
-	color: #e09050;
-	background-color: #050505;
-}	
-	
+  text-align: right !important;
+  color: #e09050;
+  background-color: #050505;
+} 
+  
 /* Tooltip */
 .ipython_tooltip {
     max-width: 100%;
@@ -406,13 +414,13 @@ table.dataframe, .dataframe td, .dataframe tr {
 .pretooltiparrow:before {
   background-color: #f00;
   border: 1px #f00 solid;
-}	
+} 
 .tooltiptext pre {
     border: 0;
     border-radius: 0;
     font-size: 80% !important;
     background-color: #111 !important;
-	color: #a0a0a0;
+  color: #a0a0a0;
 }
 
 .cm-searching {
@@ -509,7 +517,7 @@ input[type="checkbox"] {
     font-size: 120% !important;
     text-align: center !important;
     margin: 0em !important;
-	color: #ccc;
+  color: #ccc;
 }
 
 /* Prevents MathJax from jittering */
@@ -544,13 +552,13 @@ input[type="checkbox"] {
 /* ========================================================================== */
 .CodeMirror { color: #e0e0e0 !important;  background: #000; }
 .cm-s-ipython.CodeMirror {background: #000; color: #e0e0e0;}
-.cm-s-ipython .CodeMirror-linenumber {color: #00700a; background: #000;}	
-.CodeMirror-linenumber {color: #afc4db80; background: #000;}	
+.cm-s-ipython .CodeMirror-linenumber {color: #00700a; background: #000;}  
+.CodeMirror-linenumber {color: #afc4db80; background: #000;}  
 .CodeMirror-gutters {
     border-right: 1px solid rgba(55, 55, 55, 0.75) !important;
     background-color: transparent !important;
-	padding-right: 1px !important;
-	white-space: nowrap;
+  padding-right: 1px !important;
+  white-space: nowrap;
     background: #000;
 }
 .CodeMirror-gutter {padding-left: 5px;}
@@ -570,7 +578,7 @@ input[type="checkbox"] {
 }
 .cm-s-ipython .CodeMirror-matchingbracket { 
 /*    text-decoration-line: underline; text-decoration-style: solid; */
-	color: #d6d31b !important; 
+  color: #d6d31b !important; 
     background-color: #4154a0 !important;
 }
 
@@ -629,6 +637,7 @@ span.ansiyellow {color: #f9ee98;}
 .cm-s-ipython span.cm-entity {color: #3cadd7;}
 .cm-s-ipython span.cm-class {color: #E7C547;}
 .cm-s-ipython span.cm-support {color: #ffe792;}
+.cm-s-ipython span.cm-meta {color: #00c0e0;}
 .cm-s-default .cm-header {color: #a0a0a0;}
 .cm-s-ipython span.cm-qualifier {color: #77ABE7;}
 .cm-s-default .cm-atom { color: #7E72CE; }
