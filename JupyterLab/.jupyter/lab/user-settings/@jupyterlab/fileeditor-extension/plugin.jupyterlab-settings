@@ -1,0 +1,9 @@
+{
+    "editorConfig": {
+        "fontFamily": "cascadia code",
+        "fontSize": 11,
+        "lineWrap": "off",
+        "lineNumbers": true,
+        "codeFolding": true
+    }
+}
