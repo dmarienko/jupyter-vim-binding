@@ -1,0 +1,274 @@
+@-moz-document url-prefix("https://jupyter-saturn.appliedalpha.com"), url-prefix("https://jupyter-neptun.appliedalpha.com") {
+
+div#notebook, div.CodeMirror, div.output_area pre, div.output_wrapper, div.prompt {
+   font-family:  'JetBrains mono', 'hasklig', 'cascadia code', 'hasklig semibold', 'Pragmata Pro Mono', 'Meslo LG S', monospace !important;
+    font-weight: normal;
+   line-height: 110%;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/*Scroll bars*/
+::-webkit-scrollbar { width: 7px; display: none;}
+
+/* GLOBALS */
+
+body {background-color: #000;}
+a {
+	color: #509050;
+	text-decoration: none !important;
+}
+a:hover, a:focus {
+	color: #5f5;
+	text-shadow: -1px 1px 8px #555, 1px -1px 8px #555; 
+}
+
+
+.cm-s-jupyter .CodeMirror-activeline-background, .cm-s-jupyter .CodeMirror-gutter { 
+    background: #101010 !important; 
+}
+.cm-s-jupyter .CodeMirror-guttermarker { color: #FFEE80; }
+.cm-s-jupyter .CodeMirror-guttermarker-subtle { color: #D0D0D0; }
+.cm-s-jupyter .CodeMirror-linenumber { color: #59775575; }
+
+@keyframes blinker {  
+    /*
+  25% { visibility: visible; }
+  50% { visibility: hidden; }
+  100% { visibility: visible; }
+    */
+   50% {
+    opacity: 0.7;
+  }
+}
+
+.cm-s-jupyter .CodeMirror-matchingbracket { 
+    background-color: #45a9; 
+    color: #0f0 !important;
+    font-weight: bold;
+    /*animation: blinker steps(1) 300ms infinite alternate;*/
+}
+.cm-s-jupyter div.CodeMirror-selected { background: #832e21b0; }
+.cm-s-jupyter span.cm-type { color: #AABBCC; font-weight: bold; }
+
+.jp-RenderedHTMLCommon hr {
+    border-color: rgb(164, 25, 46);
+    background-color: rgb(164,25,46) !important;
+}
+#jp-main-statusbar { background-color: var(--jp-layout-color0) }
+#jp-main-statusbar span { color: var(--jp-ui-font-color1); }
+
+:root {
+    --jp-border-width: 1px;
+    --jp-border-color0: #303030;
+    --jp-border-color1: #303030;
+    --jp-border-color2: #303030;
+    --jp-border-color3: #303030;
+    
+    /*
+    --jp-code-font-family: 'hasklig';
+    --jp-code-font-size: 12px;
+    --jp-ui-font-size1: 12px;*/
+    
+    /*--jp-border-color1: var(--md-grey-800);
+    --jp-border-color2: var(--md-grey-800);
+    --jp-border-color3: var(--md-grey-900);*/
+    --jp-border-radius: 1px;
+    --jp-brand-color1: #105070;
+    --jp-content-font-color1: #a0c0c0;
+    --jp-cell-editor-box-shadow: inset 0 0 2px var(--md-blue-300);
+    --jp-cell-editor-active-background: #000000;
+    --jp-cell-editor-active-border-color: var(--jp-brand-color1); 
+    --jp-cell-editor-border-color: #303030;
+    
+  --jp-ui-font-color0: rgb(41, 152, 210);
+  --jp-ui-font-color1: rgba(195, 195, 195, 0.87);
+  --jp-ui-font-color2: rgba(195, 195, 195, 0.54);
+  --jp-ui-font-color3: rgba(195, 195, 195, 0.38);   
+    
+  --jp-ui-inverse-font-color0: rgba(30, 33, 36, 1);
+  --jp-ui-inverse-font-color1: rgba(30, 33, 36, 0.8);
+  --jp-ui-inverse-font-color2: rgba(30, 33, 36, 0.5);
+  --jp-ui-inverse-font-color3: rgba(30, 33, 36, 0.3);
+    
+  /* Cell specific styles */
+  --jp-layout-color0: #050505;
+  --jp-layout-color1: #101010; /*var(--md-grey-900);*/
+  --jp-layout-color2: #202020; /*var(--md-grey-800);*/
+  --jp-layout-color3: #303030; /*var(--md-grey-700);*/
+  --jp-layout-color4: #505050; /*var(--md-grey-600);*/
+  --jp-layout-color5: #707070;
+    
+  --jp-cell-padding: 5px;
+
+  --jp-cell-collapser-width: 8px;
+  --jp-cell-collapser-min-height: 20px;
+  --jp-cell-collapser-not-active-hover-opacity: 0.6;
+
+  --jp-cell-editor-background: var(--jp-layout-color1);
+  --jp-cell-prompt-width: 64px;
+  --jp-cell-prompt-font-family: 'Pragmata Pro Mono', 'Hasklig Semibold', monospace;
+  --jp-cell-prompt-letter-spacing: 0px;
+  --jp-cell-prompt-opacity: 1;
+  --jp-cell-prompt-not-active-opacity: 0.8;
+
+  /* A custom blend of MD grey and blue 600
+   * See https://meyerweb.com/eric/tools/color-blend/#546E7A:1E88E5:5:hex */
+  --jp-cell-inprompt-font-color: #307fc1;
+  /* A custom blend of MD grey and orange 600
+   * https://meyerweb.com/eric/tools/color-blend/#546E7A:F4511E:5:hex */
+  --jp-cell-outprompt-font-color: #bf5b3d;    
+  --jp-cell-prompt-not-active-font-color: #808080;  
+        
+    /* State colors (warn, error, success, info) */
+  --jp-warn-color0: var(--md-orange-700);
+  --jp-warn-color1: var(--md-orange-500);
+  --jp-warn-color2: var(--md-orange-300);
+  --jp-warn-color3: var(--md-orange-100);
+
+  --jp-error-color0: var(--md-red-700);
+  --jp-error-color1: var(--md-red-500);
+  --jp-error-color2: var(--md-red-300);
+  --jp-error-color3: var(--md-red-100);
+
+  --jp-success-color0: var(--md-green-700);
+  --jp-success-color1: var(--md-green-500);
+  --jp-success-color2: var(--md-green-300);
+  --jp-success-color3: var(--md-green-100);
+
+  --jp-info-color0: var(--md-cyan-700);
+  --jp-info-color1: var(--md-cyan-500);
+  --jp-info-color2: var(--md-cyan-300);
+  --jp-info-color3: var(--md-cyan-100);  
+    
+  /*--jp-mirror-editor-variable-color: #b5b5b5;*/
+  --jp-mirror-editor-variable-color: #aaaaaa;
+  --jp-mirror-editor-string-color: #dd6d0b;
+  --jp-mirror-editor-comment-color: #515c68;
+  --jp-mirror-editor-meta-color: #e1c83b;
+  --jp-mirror-editor-def-color: #4e97ca;
+  --jp-mirror-editor-keyword-color: #4caf50;
+  /*--jp-mirror-editor-keyword-color: #86bb1b;*/
+    --jp-rendermime-table-row-background: #101010;
+}
+.cm-s-jupyter span.cm-operator {color: #bb4627; font-weight: normal;}
+.cm-s-jupyter span.cm-atom {color: #ffe792; }
+.cm-s-jupyter span.cm-keyword {font-weight: bold !important;}
+
+/*
+.cm-s-jupyter span.cm-number {color: #ca7840; }
+.cm-s-jupyter span.cm-property {color: #77ABE7;}
+.cm-s-jupyter span.cm-attribute {color: #E39194;}
+.cm-s-jupyter span.cm-keyword {color: #60b44e; font-weight: bold;}
+.cm-s-jupyter span.cm-string {color: #d0981f; font-weight: normal;}
+.cm-s-jupyter span.cm-builtin {color: #5b87f8; font-weight: normal;}
+.cm-s-jupyter span.cm-boolean {color: #ffe792; }
+.cm-s-jupyter span.cm-variable-2 {color: #E6992E; font-weight: bold;}
+.cm-s-jupyter span.cm-bracket {color: #cbd6e2;}
+.cm-s-jupyter span.cm-def {color: #bfbf56;font-weight: normal;}
+.cm-s-jupyter span.cm-error {background: rgba(191, 97, 106, .3) !important;}
+.cm-s-jupyter span.cm-tag {color: #CAA6EC;}
+.cm-s-jupyter span.cm-link {color: #E39194;}
+.cm-s-jupyter span.cm-storage {color: #ffffff;}
+.cm-s-jupyter span.cm-entity {color: #3cadd7;}
+.cm-s-jupyter span.cm-class {color: #E7C547;}
+.cm-s-jupyter span.cm-support {color: #ffe792;}
+.cm-s-jupyter span.cm-meta {color: #00c0e0;}
+.cm-s-default .cm-header {color: #a0a0a0;}
+.cm-s-jupyter span.cm-qualifier {color: #77ABE7;}
+*/
+.cm-s-default .cm-atom { color: #7E72CE; }
+.cm-s-default .cm-link {color: #3974dd;}
+.cm-s-default .cm-string {color: #dd6d0b;}
+.cm-s-default .cm-header {color: #a0a0a0;}
+.cm-s-default .cm-attribute {color: #1090f0;}
+.cm-s-default .cm-variable-2 {color: #00c0e0;}
+.cm-s-default .cm-variable-3 {color: #00c070;}
+.cm-s-default .cm-keyword {color: #c6c24D;}
+
+.cm-searching {
+/*    background: #cd770dfa !important; */
+   /*background: #0e347bfa !important;*/
+    /*color: #0000 !important;*/
+    /*color: #99f !important;*/
+    
+    color: #0f06 !important;
+    background: #0000 !important;
+	text-shadow: -1px 1px 8px #0f0, 1px -1px 8px #0f0 !important; 
+}
+
+.CodeMirror-cursor { 
+    border-left: 3px solid #f00 !important; 
+}
+.cm-fat-cursor .CodeMirror-cursor {width: auto;
+    border: 0 !important; 
+    background: #ff0000a0;
+}
+.cm-fat-cursor div.CodeMirror-cursors {z-index: 1;}
+.cm-animate-fat-cursor {
+  width: auto;
+  border: 0 !important;
+  -webkit-animation: blink 1.06s steps(1) infinite;
+  -moz-animation: blink 1.06s steps(1) infinite;
+  animation: blink 1.06s steps(1) infinite;
+  background-color: #ff1010;
+}
+
+/* Some additional tweaks */
+.jp-RenderedText pre, .jp-RenderedJavaScript pre, .jp-RenderedHTMLCommon pre {
+    font-size: 11px;
+}
+.jp-Completer-item .jp-Completer-match {
+    font-size: 11px;
+}
+.p-MenuBar-item {
+    color: var(--jp-ui-font-color0);
+}
+/* ======================================== */
+.jp-SideBar .p-TabBar-tab:not(.p-mod-current) {
+    background: #0f0f0f;
+}
+.jp-SideBar.p-TabBar {
+    background: #0f0f0f;
+    border: var(--jp-border-width) #0f0f0f;
+}
+
+/* ------ Terminal ------- */
+.terminal-app {
+    background: rgb(0,0,0) !important;
+}
+.terminal-app #header {
+    display: none !important;
+}
+
+.jp-Favorites-itemText {
+    /*color: #6c91c1;*/
+    color: #080;
+	text-shadow: -1px 1px 8px #050, 1px -1px 8px #050; 
+}
+
+/*   ---- Table ---- 
+table.dataframe, .dataframe td, .dataframe tr { 
+	border: 1px solid #004000; border-collapse: collapse; color: #30a030 !important;
+}
+.rendered_html tbody tr:nth-child(2n+1) {background: #101010 !important;}
+.dataframe th { 
+	border: 1px solid #004000; border-collapse: collapse; background-color: #001800 !important; 
+    color: #70a070 !important;
+    
+}
+ ---------------------------- */
+   
+table.dataframe, .dataframe td, .dataframe tr { 
+	border: 1px solid #55554a85; 
+    border-collapse: collapse; 
+    color: #859548d9 !important;
+}
+.dataframe th { 
+	border: 1px solid #55554a85; 
+    border-collapse: collapse; 
+    background-color: #010101 !important; 
+    color: #167 !important;
+    
+}
+/* ---------------------------- */
+}
