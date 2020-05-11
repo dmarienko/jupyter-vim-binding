@@ -50,6 +50,17 @@ class VimCell {
             lvim.defineEx('quit', 'q', function (cm) {
                 commands.execute('notebook:enter-command-mode');
             });
+            
+            // ----- my customization -------
+            lvim.map('jj', '<Esc>', 'insert');
+            lvim.map('jk', '<Esc>', 'insert');
+            // comment/uncomment
+            lvim.defineAction("toggle_comment_a", (cm, actionArgs) => {
+                console.log('Toggle Comment !');
+                cm.toggleComment();
+             });
+            lvim.mapCommand("<C-\\>", "action", "toggle_comment_a", {}, { context: 'normal'});
+
             CodeMirror.Vim.handleKey(editor.editor, '<Esc>');
             lvim.defineMotion('moveByLinesOrCell', (cm, head, motionArgs, vim) => {
                 let cur = head;
@@ -247,6 +258,14 @@ function activateCellVim(app, tracker) {
             },
             isEnabled
         });
+        commands.addCommand('enter-insert-mode-2', {
+            label: 'Enter Insert Mode 2',
+            execute: args => {
+                console.log('EE2');
+                commands.execute('notebook:enter-edit-mode');
+            },
+            isEnabled
+        });
         commands.addCommand('leave-insert-mode', {
             label: 'Leave Insert Mode',
             execute: args => {
@@ -408,19 +427,21 @@ function activateCellVim(app, tracker) {
             keys: ['Escape'],
             command: 'leave-insert-mode'
         });
-        commands.addKeyBinding({
-            selector: '.jp-Notebook.jp-mod-editMode',
-            keys: ['Ctrl ['],
-            command: 'leave-insert-mode'
-        });
+//        commands.addKeyBinding({
+//            selector: '.jp-Notebook.jp-mod-editMode',
+//            keys: ['J', 'J'],
+//            command: 'leave-insert-mode'
+//        });
         commands.addKeyBinding({
             selector: '.jp-Notebook:focus',
-            keys: ['Ctrl I'],
-            command: 'enter-insert-mode'
+            keys: ['I'],
+            //command: 'notebook:enter-edit-mode'
+            command: 'enter-insert-mode-2'
         });
         commands.addKeyBinding({
             selector: '.jp-Notebook.jp-mod-editMode',
-            keys: ['Ctrl Enter'],
+            //keys: ['Ctrl Enter'],
+            keys: ['Alt J'],
             command: 'run-cell-and-edit'
         });
         commands.addKeyBinding({
@@ -430,8 +451,14 @@ function activateCellVim(app, tracker) {
         });
         commands.addKeyBinding({
             selector: '.jp-Notebook.jp-mod-editMode',
-            keys: ['Shift Escape'],
+            //keys: ['Shift Escape'],
+            keys: ['Alt I'],
             command: 'notebook:enter-command-mode'
+        });
+        commands.addKeyBinding({
+            selector: '.jp-Notebook.jp-mod-editMode',
+            keys: ['Alt K'], // Alt-K wanna leave insert mode
+            command: 'leave-insert-mode'
         });
         commands.addKeyBinding({
             selector: '.jp-Notebook:focus',
